@@ -7,17 +7,31 @@ import whatsapp_icon from "../Assets/whatsapp_icon.png";
 import { Link } from "react-router-dom";
 import { ShopContext } from "../../Context/ShopContext";
 
+
+const scrollToTop = () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+};
+
 const Footer = () => {
   const { theme } = useContext(ShopContext);
   return (
     <div className="footer">
       <div className="footer-logo">
         <img src={footer_logo} alt="" />
-        <p className={`footer_${theme}`}>ShopNex</p>
+        <p className={`footer_${theme}`}>
+          <Link className={`link_${theme}`} to="/" onClick={scrollToTop}>
+            ShopNex
+          </Link>
+        </p>
       </div>
       <ul className={"footer-links_" + theme}>
         <li>Company</li>
-        <li>Products</li>
+        <li>
+          {" "}
+          <Link className={`link_${theme}`} to="/" onClick={scrollToTop}>
+            Products
+          </Link>
+        </li>
         <li>Offices</li>
         <li>
           {" "}
